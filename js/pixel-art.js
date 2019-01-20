@@ -5,12 +5,10 @@ var isClicked = 0;
 
 document.body.onmousedown = function() { 
   isClicked++;
-  console.log("clicked");
 }
 
 document.body.onmouseup = function() {
   isClicked--;
-  console.log("notclicked");
 }
 
 var nombreColores = ['White', 'LightYellow',
@@ -84,6 +82,19 @@ function pintadoBarrido(event) {
     event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;
   }
 }
+
+function borrarTodo() {
+  console.log("Hola");
+  listaPixeles =  $("#grilla-pixeles").children(".pixel");
+  listaPixeles.animate({"background-color":"white"}, 1000);
+  // for(var i=0; i<listaPixeles.length; i++){
+  //   listaPixeles[i].style.backgroundColor = "white";
+  //   listaPixeles[i].fadeOut();
+  // }   
+}
+
+var borrar = document.getElementById('borrar');
+borrar.addEventListener("click", borrarTodo);
 
 crearGrilla();
 crearPaleta();
