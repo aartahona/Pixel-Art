@@ -42,19 +42,36 @@ function crearGrilla () {
   }
 }
 
-
-crearGrilla();
-crearPaleta();
-
-var paletaSeleccionada = document.getElementsByClassName("color-paleta");
-for(var i=0; i<paletaSeleccionada.length; i++){
-  paletaSeleccionada[i].addEventListener("click", cambiarColorClickeado);
+function selecciondeColor() {
+    var paletaSeleccionada = document.getElementsByClassName("color-paleta");
+    for(var i=0; i<paletaSeleccionada.length; i++){
+    paletaSeleccionada[i].addEventListener("click", cambiarColorClickeado);
+  }
 }
   
 function cambiarColorClickeado(event){
-  console.log("Hola");
   document.getElementById("indicador-de-color").style.backgroundColor = event.target.style.backgroundColor;
 }
+
+function pintarPixel() {
+  var pixelParaPintar = document.getElementsByClassName("pixel");
+
+  for(var i=0; i<pixelParaPintar.length; i++){
+    pixelParaPintar[i].addEventListener("click", cambiarColorPixel);
+  }  
+}
+
+function cambiarColorPixel(event){
+  event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;
+}
+
+
+crearGrilla();
+crearPaleta();
+selecciondeColor();
+pintarPixel();
+
+
 
 
 
