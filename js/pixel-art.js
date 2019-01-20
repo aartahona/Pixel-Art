@@ -1,6 +1,6 @@
 var paleta = document.getElementById("paleta");
 var grilla = document.getElementById("grilla-pixeles");
-
+var numeroPixeles = 1750;
 
 var nombreColores = ['White', 'LightYellow',
   'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
@@ -24,13 +24,24 @@ var nombreColores = ['White', 'LightYellow',
   'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
 ];
 
-
-for(var i=0; i<nombreColores.length; i++){
-  var nuevodiv = document.createElement('div');
-  nuevodiv.style.backgroundColor = nombreColores[i];
-  nuevodiv.className = "color-paleta";
-  paleta.appendChild(nuevodiv);
+function crearPaleta() {
+    for(var i=0; i<nombreColores.length; i++){
+    var nuevodiv = document.createElement('div');
+    nuevodiv.style.backgroundColor = nombreColores[i];
+    nuevodiv.className = "color-paleta";
+    paleta.appendChild(nuevodiv);
+  }
 }
+crearPaleta();
+for(var i=0; i<numeroPixeles; i++){
+  var nuevopixel = document.createElement('div');
+  nuevopixel.style.backgroundColor = "white";
+  nuevopixel.className = "pixel";
+  grilla.appendChild(nuevopixel);
+}
+
+
+
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
