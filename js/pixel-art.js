@@ -65,17 +65,10 @@ function cambiarColorPixel(event){
   event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;
 }
 
-
 crearGrilla();
 crearPaleta();
 selecciondeColor();
 pintarPixel();
-
-
-
-
-
-
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
@@ -86,7 +79,6 @@ colorPersonalizado.addEventListener('change',
     // Se guarda el color de la rueda en colorActual
     colorActual = colorPersonalizado.value;
     // Completar para que cambie el indicador-de-color al colorActual
-
-
+    document.getElementById("indicador-de-color").style.backgroundColor = colorActual;
   })
 );
