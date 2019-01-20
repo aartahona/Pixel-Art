@@ -32,13 +32,30 @@ function crearPaleta() {
     paleta.appendChild(nuevodiv);
   }
 }
-crearPaleta();
-for(var i=0; i<numeroPixeles; i++){
-  var nuevopixel = document.createElement('div');
-  nuevopixel.style.backgroundColor = "white";
-  nuevopixel.className = "pixel";
-  grilla.appendChild(nuevopixel);
+
+function crearGrilla () {
+    for(var i=0; i<numeroPixeles; i++){
+    var nuevopixel = document.createElement('div');
+    nuevopixel.style.backgroundColor = "white";
+    nuevopixel.className = "pixel";
+    grilla.appendChild(nuevopixel);
+  }
 }
+
+
+crearGrilla();
+crearPaleta();
+
+var paletaSeleccionada = document.getElementsByClassName("color-paleta");
+for(var i=0; i<paletaSeleccionada.length; i++){
+  paletaSeleccionada[i].addEventListener("click", cambiarColorClickeado);
+}
+  
+function cambiarColorClickeado(event){
+  console.log("Hola");
+  document.getElementById("indicador-de-color").style.backgroundColor = event.target.style.backgroundColor;
+}
+
 
 
 
