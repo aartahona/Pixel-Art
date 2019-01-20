@@ -24,8 +24,12 @@ var nombreColores = ['White', 'LightYellow',
   'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
 ];
 
-for(i=0; nombreColores.length<1; i++){
+
+for(var i=0; i<nombreColores.length; i++){
   var nuevodiv = document.createElement('div');
+  nuevodiv.style.backgroundColor = nombreColores[i];
+  nuevodiv.className = "color-paleta";
+  paleta.appendChild(nuevodiv);
 }
 
 // Variable para guardar el elemento 'color-personalizado'
