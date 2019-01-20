@@ -1,6 +1,17 @@
 var paleta = document.getElementById("paleta");
 var grilla = document.getElementById("grilla-pixeles");
 var numeroPixeles = 1750;
+var isClicked = 0;
+
+document.body.onmousedown = function() { 
+  isClicked++;
+  console.log("clicked");
+}
+
+document.body.onmouseup = function() {
+  isClicked--;
+  console.log("notclicked");
+}
 
 var nombreColores = ['White', 'LightYellow',
   'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
@@ -58,11 +69,20 @@ function pintarPixel() {
 
   for(var i=0; i<pixelParaPintar.length; i++){
     pixelParaPintar[i].addEventListener("click", cambiarColorPixel);
-  }  
+  } 
+  for(var i=0; i<pixelParaPintar.length; i++){
+    pixelParaPintar[i].addEventListener("mouseover", pintadoBarrido);
+  }   
 }
 
 function cambiarColorPixel(event){
-  event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;
+    event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;  
+}
+
+function pintadoBarrido(event) {
+  if(isClicked){
+    event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;
+  }
 }
 
 crearGrilla();
