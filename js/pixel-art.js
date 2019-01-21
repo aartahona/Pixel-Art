@@ -82,24 +82,11 @@ function pintadoBarrido(event) {
     event.target.style.backgroundColor = document.getElementById("indicador-de-color").style.backgroundColor;
   }
 }
-
-function borrarTodo() {
-  console.log("Hola");
-  listaPixeles =  $("#grilla-pixeles").children(".pixel");
-  listaPixeles.animate({"background-color":"white"}, 1000);
-  // for(var i=0; i<listaPixeles.length; i++){
-  //   listaPixeles[i].style.backgroundColor = "white";
-  //   listaPixeles[i].fadeOut();
-  // }   
-}
-
-var borrar = document.getElementById('borrar');
-borrar.addEventListener("click", borrarTodo);
-
 crearGrilla();
 crearPaleta();
 selecciondeColor();
 pintarPixel();
+
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
@@ -113,3 +100,27 @@ colorPersonalizado.addEventListener('change',
     document.getElementById("indicador-de-color").style.backgroundColor = colorActual;
   })
 );
+
+function borrarTodo() {
+  console.log("Hola");
+  listaPixeles =  $("#grilla-pixeles").children(".pixel");
+  listaPixeles.animate({"background-color":"white"}, 1000); 
+}
+
+document.getElementById('borrar').addEventListener("click", borrarTodo);
+document.getElementById("batman").addEventListener("click", mostrarSuperheroe);
+document.getElementById("wonder").addEventListener("click", mostrarSuperheroe);
+document.getElementById("flash").addEventListener("click", mostrarSuperheroe);
+document.getElementById("invisible").addEventListener("click", mostrarSuperheroe);
+document.getElementById('guardar').addEventListener("click", guardarPixelArt);
+//document.getElementById("batman").addEventListener("click", mostrarSuperheroe);
+
+function mostrarSuperheroe(event) {
+  //debugger;
+  if(event.target.id == "batman") cargarSuperheroe(batman);
+  if(event.target.id == "wonder") cargarSuperheroe(wonder);
+  if(event.target.id == "flash") cargarSuperheroe(flash);
+  if(event.target.id == "invisible") cargarSuperheroe(invisible);  
+}
+
+
